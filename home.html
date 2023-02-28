@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="shortcut icon" href="WEBI/Tezario.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+    <title>TEZARIO</title>
+    <style>
+        :root {
+  --glow-color: gold;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+        *{
+            margin: 0;
+            padding: 0;
+            
+            
+        }
+        .banner{
+            text-align: center;
+            display: block;
+            width: auto;
+            height: 710px;
+            background: url(WEBI/brick.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+body {
+  align-items: center;
+  background: black;
+  display: flexbox;
+  font-family: 'Gentium Book Plus', serif;
+
+}
+.glowing-btn {
+ top: 35%;
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  text-align: center;
+  border: none;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  font-size: 12vh;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+
+
+  transition: opacity 100ms linear;
+}
+
+
+@keyframes faulty-flicker {
+
+
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes text-flicker {
+    0% {
+    opacity: 0.3;
+  }
+  2% {
+    opacity: 0.3;
+  }
+  4% {
+    opacity: 0.7;
+  }
+  19% {
+    opacity: 0.7;
+  }
+  21% {
+    opacity: 0.3;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  83% {
+    opacity: 0.6;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.3;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.3;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#timer {
+ 
+ display: block;
+ position: relative;
+ top: 35%;
+  font-size: 3em;
+  font-weight: 100;
+  color: white;
+  text-shadow: 0 0 20px white;
+  font-family: "Raleway", sans-serif;
+}
+#timer div {
+  display: inline-block;
+  min-width: 90px;
+  
+  
+}
+#timer div span {
+  color: white;
+  display: block;
+  font-size: 0.35em;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+}
+
+.banner button{
+  border: none;
+  border-radius:7px;
+  background-color: gold;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-size:2.5vh;
+  font-weight: bold;
+  width: 120px;
+  height:50px;
+  position: relative;
+  top: 40%;
+  cursor: pointer;
+  box-shadow: 0 5px 15px goldenrod;
+}
+
+.column1 button{
+  border: none;
+  border-radius:7px;
+  background-color: gold;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-size:2.5vh;
+  font-weight: bold;
+  width: 120px;
+  height:50px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px goldenrod;
+}
+
+.banner button:hover,.column1 button:hover{
+  color: gold;
+  background-color: white;
+  box-shadow: 0 5px 15px whitesmoke;
+  
+}
+
+
+@media only screen and (max-width: 768px) {
+  .banner{
+    height: 600px;
+  }
+    .glowing-txt{
+    font-size: 6vh;
+    letter-spacing: .2em;
+    font-weight: bolder
+  }
+  #timer{
+    font-size: 1.3em;
+    text-shadow: 20 20 40px white;
+  }
+  #timer div{
+    min-width:40px;
+  }
+  .banner button{
+    width: 75px;
+  height:30px;
+  font-size:1.5vh;
+  }
+
+}
+
+
+
+
+
+/* Navbar section */
+
+.nav {
+    z-index: 1000;
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+    font-family: 'Gentium Book Plus', serif;
+}
+
+.nav div.logo {
+    float: left;
+    width: 50px;
+    height: 50px;
+    padding-left: 3rem;
+}
+
+.nav div.logo img {
+    text-decoration: none;
+    color: #fff;
+  
+    width: 135px ;
+    height: 60px;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.nav div.logo a:hover {
+    color: gold;
+}
+
+.nav div.main_list {
+    height: 65px;
+    float: right;
+}
+
+.nav div.main_list ul {
+  
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav div.main_list ul li {
+    width: auto;
+    
+    padding: 0;
+    padding-right: 3rem;
+}
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 65px;
+    font-size: 1.5rem;
+}
+
+.nav div.main_list ul li a:hover {
+    color: gold;
+}
+
+
+.navTrigger {
+    display: none;
+}
+
+.nav {
+   
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+/* Media qurey section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .navTrigger {
+        display: block;
+    }
+    .nav div.logo{
+      padding: 2%;
+    }
+    .nav div.logo img{
+      width: 80px;
+      height: 35px;
+    }
+  
+    .nav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .nav div.show_list {
+        height: auto;
+        display: none;
+    }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 10px;
+        background-color: black;
+        /*same background color of navbar*/
+        background-position: center top;
+    }
+    .nav div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+    .nav div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        font-size: 1rem;
+        padding: 20px;
+    }
+    .nav div.media_button {
+        display: block;
+    }
+}
+
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+.affix {
+    padding: 0;
+    background-color: #111;
+}
+
+.row,.rowh{
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'Gentium Book Plus', serif;
+  color: white;
+  margin: 5%;
+  background-color: #2a2828;
+  border-radius: 10px;
+  padding: 3%;
+}
+
+
+
+
+.column,.columnh {
+  line-height: 1.6;
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+
+.column1,.column1h{
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+.columnhack{
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+.column img{
+    width: 350px;
+    height: 350px;
+}
+.columnh img{
+    width: 350px;
+    height: 350px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col-sm-6 img{
+  width: 100px;
+    height: 100px;
+}
+.fa{
+  color:gold;
+  font-size: 50px; 
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row{
+    height:1300px;
+    margin: 7% 5%;
+    box-shadow: 0 4px 8px 0 gold;
+  }
+  .row h2{
+    text-align: center;
+  }
+
+  .column img{
+    
+    text-align: center;
+    width: 100%;
+    height: 80%;
+   
+  }
+  .column1 button{
+    position: relative;
+    left: 35%;
+  }
+  .column,.column1 {
+    width: 100%;
+  }
+}
+.rows{
+  margin: 5%;
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'Gentium Book Plus', serif;
+  color: white;
+}
+.columns {
+  float: left;
+  text-align: justify;
+  width: 50%;
+  padding: 0 10px;
+}
+
+
+
+/* Clear floats after the columns */
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.columns .cardss {
+  border-radius:10px ;
+  box-shadow: 0 4px 8px 0 gold;
+  padding: 16px;
+  text-align: center;
+  background-color: #2a2828;
+}
+
+.rowsd{
+  margin: 5%;
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'Gentium Book Plus', serif;
+  color: white;
+  padding: 1%;
+  background: url(bg-gold.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Float four columns side by side */
+.columnsd {
+  
+  float: left;
+  width: 23%;
+  padding: 0 10px;
+  margin: 5% 1%;
+}
+
+
+
+/* Clear floats after the columns */
+.rowsd:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .columnsd {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.cardsd {
+  font-family: 'Gentium Book Plus', serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #2a2828;
+}
+.t{
+  color: gold;
+}
+.footer-ro{
+  width: auto;
+  height: 300px;
+  background-color: #2a2828;
+  line-height: 1.6;
+  text-align: justify;
+  font-family: 'Gentium Book Plus', serif;
+  color: white;
+  padding: 1%;
+
+}
+.footer-col{
+  float: left;
+  width: 47%;
+  margin: 2% 1%;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #2a2828;
+  
+ 
+
+}
+.footer-card{
+  border-radius: 10px;
+ 
+  text-align: center;
+  background-color: #2a2828;
+
+}
+.footer-ro:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .footer-ro{
+    
+    width: 95%;
+    height: 40%;
+    margin: 2%;
+   
+  }
+  .footer-col{
+    width: 97%;
+    display: block;
+    
+    margin-bottom: 20px;
+  }
+  .footer-col img{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+.hello {
+  opacity: 1 !important;
+}
+.full {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.full .content {
+  background-color: rgba(0,0,0,0.75) !important;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+.full .content img {
+  left: 50%;
+  transform: translate3d(0, 0, 0);
+  animation: zoomin 1s ease;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+.byebye {
+  opacity: 0;
+}
+.byebye:hover {
+  transform: scale(0.2) !important;
+}
+.gallery {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 8px;
+  
+}
+.images{
+  background-color: #2a2828;
+  color: #fff;
+  margin: 5%;
+ 
+}
+.images h2{
+  text-align: center;
+  padding: 3%;
+}
+.gallery img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #333;
+  transition: all 1.5s ease;
+}
+.gallery img:hover {
+  box-shadow: 0 0 32px #333;
+}
+.gallery .content {
+  padding: 4px;
+}
+.gallery .gallery-item {
+  transition: grid-row-start 300ms linear;
+  transition: transform 300ms ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.gallery .gallery-item:hover {
+  transform: scale(1.025);
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+}
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+}
+@-moz-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+
+.cards {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  max-width: 34em;
+  margin: 5%  auto 0;
+  color: #000;
+}
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: white;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 0 10px gold;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+  transform-origin: 0 0;
+  transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s, background 0.4s linear;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.card :last-child {
+  margin-bottom: 0;
+}
+.card--next {
+  z-index: 5;
+  transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+  background: url(bg-gold.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card--out {
+  -webkit-animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  z-index: 1;
+  background: #bbb;
+}
+@-webkit-keyframes card-out {
+  0% {
+    z-index: 20;
+    transform: translateY(0px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+  }
+  80% {
+    z-index: 1;
+  }
+  100% {
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  }
+}
+@keyframes card-out {
+  0% {
+    z-index: 20;
+    transform: translateY(0px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+  }
+  80% {
+    z-index: 1;
+  }
+  100% {
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  }
+}
+.card--current {
+  cursor: auto;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  background: #EEE;
+  transform: rotate(-1deg) translateX(0%) scale(1);
+}
+
+#more {display: none;}
+#myBtn{background: transparent;box-shadow: none;border: none;width: auto;height: auto;margin: 0%;color: gold;
+}#myBtn:hover{color: white;}
+
+
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    gold 0%,
+    rgb(208, 180, 18) 29%,
+    goldenrod 67%,
+	 rgb(255, 183, 0) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite; 
+}
+.rowth{margin: 5%;padding:2%;text-align: center;color:white;}
+.columnth {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin:  1% 0;
+  overflow: hidden;
+
+
+  
+}
+
+/* Remove extra left and right margins, due to padding */
+
+
+/* Clear floats after the columns */
+.rowth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .columnth {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .column1 button{
+    font-size:smaller;
+    padding: 0.4%;
+    width: 100px;
+    height: 40px;
+  }
+
+}
+
+/* Style the counter cards */
+.cardth {
+ 
+  padding: 16px;
+  text-align: center;
+  height: 200px;
+  background-color: #f1f1f1;
+  color: #fff;
+  background-position:top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 1s;
+}
+.cardth h3{
+  position: relative;
+  top:40%;
+}
+.cardth:hover{
+  transform: scale(1.2);
+}
+
+.rowth,.images,.rowsd,.row {
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px 10px gold;
+  animation: shadows 1.5s infinite;
+}
+
+@keyframes shadows {
+
+
+  33.3% {
+   
+    box-shadow: 0px 0px 15px 7.5px gold;
+  }
+
+ 66.6% {
+   
+    box-shadow: 0px 0px 20px 10px gold;
+  }
+  99.9% {
+    
+    box-shadow: 0px 0px 17.5px 9.5px gold;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .rowth,.images,.rowsd,.row {
+    margin: 7% 5%;
+    box-shadow: 0px 0px 10px 5px gold;
+  }
+  @keyframes shadows {
+  33.3% {
+   
+   box-shadow: 0px 0px 7px 3.5px gold;
+ }
+
+66.6% {
+  
+   box-shadow: 0px 0px 10px 5px gold;
+ }
+
+}
+
+.footer-col{
+  width: 97%;
+}
+
+.card{
+  width: 90%;
+  margin: 10% 0%;
+ 
+ 
+}
+
+}
+
+.popup-btns-wrapper {
+	margin-bottom: -20px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.popup-btn {
+	padding-bottom: 2rem;
+	width: 20rem;
+}
+
+.popup-btn span {
+	background: tomato;
+	color: white;
+	cursor: pointer;
+	display: block;
+	line-height: 1;
+	padding: 1rem 2rem;
+	text-align: center;
+}
+
+.popup-content-container {
+	background-color: white;
+	color: #333;
+	display: none;
+	height: 60vh;
+	left: 50%;
+	padding: 2rem;
+	position: fixed;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	overflow-y: auto;
+	width: 40vw;
+	z-index: 2000;
+}
+    
+.popup-close {
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	z-index: 2000;
+}
+
+.popup-close:hover { opacity: 0.7; }
+
+.popup-overlay {
+	background: rgba(0,0,0,0.85);
+	display: none;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+    </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+        <div class="logo">
+            <img src="WEBI/kncet.png" alt="" srcset="" >
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#highlight">Highlights</a></li>
+                <li><a href="#imgs">Gallery</a></li>
+                <li><a href="#theme">Theme</a></li>
+            </ul>
+        </div>
+        <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </div>
+</nav>
+    <div class="banner">
+      <!-- Tezario -->
+        
+        <h1 class='glowing-btn'><span class='glowing-txt'>TEZ<span class='faulty-letter'>A</span>RIO</span></h1>
+        <div id="timer"></div>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdxp44yzsP4bepW7wFE-YXD1V10RnErmOxLja6HpRmRGN-_yA/viewform?usp=sf_link" target="_blank" style="position: relative;top: 40%;">
+          <button >Register Now</button>
+        </form>
+        
+
+    </div>
+    <div id="about"></div>
+    <div class="row">
+     <center><h2 class="animate-charcter">ABOUT US</h2></center> 
+        <div class="column" >
+          
+            <img src="WEBI/Website Creator-bro.png" alt="" srcset=""></div> 
+           
+            <div class="column1" >
+              <h2>About The Department</h2> 
+              <p>New and emerging technologies challenge the traditional process of teaching and learning, and the way education is managed. Information Technology, while an important area of study in its own right, is having a major impact across all curriculum areas. Easy worldwide communication provides instant access to a vast array of data, 
+                challenging assimilation and assessment skills.The knowledge-intensive functions such as development and marketing can be sited in countries <span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+                <button onclick="myFunction()" id="myBtn">Read more</button></p>
+              <script>
+                function myFunction() {
+                  var dots = document.getElementById("dots");
+                  var moreText = document.getElementById("more");
+                  var btnText = document.getElementById("myBtn");
+                
+                  if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML = "Read more"; 
+                    moreText.style.display = "none";
+                  } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Read less"; 
+                    moreText.style.display = "inline";
+                  }
+                }
+                </script>
+                <h2>About Event</h2>
+               <p>A 24-hour hackathon where programmers, designers and inventors meet to code, design and build innovative and promising solutions to real world problems. This is a venue for self-expression and creativity through technology.</p> 
+               <br>
+               <h2>Event Registration Ends on:<span style="color:gold">4/03/2023</span></h2>
+               <form action="https://docs.google.com/forms/d/e/1FAIpQLSdxp44yzsP4bepW7wFE-YXD1V10RnErmOxLja6HpRmRGN-_yA/viewform?usp=sf_link" target="_blank" >
+                <button >Register Now</button>
+              </form>
+            </div> 
+           
+          
+          </div>
+          <!-- <div class="rowha">
+            <center><h2 class="animate-charcter">ABOUT HACKATHON</h2></center> 
+               <div class="columnh" >
+                   <img src="WEBI/hackthonloop.gif" alt="" srcset="">
+                  
+                </div> 
+                  
+                   <div class="column1h" >
+
+                     <p>A hackathon, also known as a codefest, is a social coding event that brings computer programmers and other interested people together to improve upon or build a new software program.The word hackathon is a portmanteau of the words hacker, 
+                      which means clever programmer, and marathon, an event marked by endurance.The concept of the hackathon, also called a hack day or hack fest, was born out of the open source community. 
+                      The first event labeled a hackathon was the OpenBSD Hackathon in Calgary, Canada, on June 4, 1999.Today, engineering departments, especially those at web-based companies, adopt the practice as a way of introducing intrapreneurship into the enterprise. 
+                      Hackathons are sometimes undertaken to achieve a specific goal, but often they are a chance for businesses to pursue employee-driven, out-of-the-box ideas in a low-risk environment.
+                       Employees are given the freedom and support to collaborate with colleagues in other departments within a given timeframe and without the pressure of having to produce a viable product.</p>
+                       
+
+                   </div> 
+                  
+                 
+                 </div> -->
+          <!-- <div class="rows">
+            <div class="columns">
+              <div class="cardss">
+                <h2>PRIZES</h2>
+                <img src="first.png" alt="" width="50px" height="50px">
+                <p><span>FIRST PRIZE</span> worth Rs.5,000</p>
+                <img src="second.png" alt="" width="50px" height="50px">
+                <p><span>SECOND PRIZE</span> worth Rs.3,000</p>
+                <img src="third.png" alt="" width="50px" height="50px">
+                <p><span>THIRD PRIZE</span> worth Rs.2,000</p>
+                <img src="award.png" alt="" width="50px" height="50px">
+                <p><span>BEST PERFORMER </span> worth Rs.1,000</p>
+              </div>
+            </div>
+          
+            <div class="columns">
+              <div class="cardss">
+                <h2>VENUE DETAILS</h2>
+                <img src="location.png" alt="" width="50px" height="50px">
+               <p>Mode of conduct - OFFILNE </p>
+               <img src="calendar.png" alt="" width="50px" height="50px">
+               <p>Date and Time - March 3&4 </p>
+               <img src="employee.png" alt="" width="50px" height="50px">
+               <p>Team Size - 5</p>
+               <img src="dashboard.png" alt="" width="50px" height="50px">
+               <p>Themes</p>
+               
+              </div>
+            </div>
+            
+          </div> -->
+         
+ <div class="high" style="margin-bottom:8% ">
+           
+  <div id="highlight"></div>
+  <center><h2 class="animate-charcter">HIGHLIGHTS OF HACKATHON</h2></center>
+  <p style="color:#fff;font-size: smaller;text-align: center;">(click the top corner of the card to change)</p>
+  
+  <ul class="cards">
+  
+    <li class="card"style="background: url('WEBI/prizegrey.jpg');color:white;text-align:center">
+     
+        <h1>PRIZES</h1>
+        <img src="WEBI/first.png" alt="" width="50px" height="50px">
+        <p><span>FIRST PRIZE</span> worth Rs.5,000</p>
+        <!-- <br><q>You have to be odd to be number one.</q> -->
+        
+        <img src="WEBI/second.png" alt="" width="50px" height="50px">
+        <p><span>SECOND PRIZE</span> worth Rs.3,000</p>
+        <img src="WEBI/third.png" alt="" width="50px" height="50px">
+        <p><span>THIRD PRIZE</span> worth Rs.2,000</p>
+        <img src="WEBI/award.png" alt="" width="50px" height="50px">
+        <p><span>BEST PERFORMER </span> worth Rs.1,000</p>
+      
+      </li>
+    <li class="card" style="background: url('WEBI/venuegrey.jpg'); color: #fff;background-repeat: no-repeat;background-size: cover;text-align: center;">
+      
+        <h1>VENUE DETAILS</h1>
+        <img src="WEBI/location.png" alt="" width="50px" height="50px">
+       <p>Mode of conduct - OFFILNE </p>
+       <img src="WEBI/calendar.png" alt="" width="50px" height="50px">
+       <p>Date and Time - March 3&4 </p>
+       <img src="WEBI/employee.png" alt="" width="50px" height="50px">
+       <p>Team Size - 5</p>
+       <img src="WEBI/dashboard.png" alt="" width="50px" height="50px">
+      
+       <p>Themes</p>
+      </li>
+    <li class="card" style="background: url('WEBI/shedulegrey.jpg');text-align: justify;">
+      <center><h1> EVENT SCHEDULE</h1></center>
+      <P>1.00-1.30 PM  : Inaugural Function</P>
+      <p>3.15-3.30 PM  : Tea Break</p>
+      <P>5.00-6.00 PM  : 1st review</P>
+      <p>7.00-8.00 PM  : Dinner</p>
+      <P>10.00-11.00 PM: 2nd review</P>
+      <P>3.00-4.00 AM  : 3rd review</P>
+      <p>5.00-8.00 AM  : Fresh Up</p>
+      <p>11.00-11.15 AM: Tea Break</p>
+      <P>12.00-1.00 PM : 4th review</P>
+
+    </li>
+    
+  </ul>
+  <script>
+    $.fn.commentCards = function(){
+  
+  return this.each(function(){
+  
+    var $this = $(this),
+        $cards = $this.find('.card'),
+        $current = $cards.filter('.card--current'),
+        $next;
+  
+    $cards.on('click',function(){
+      if ( !$current.is(this) ) {
+        $cards.removeClass('card--current card--out card--next');
+        $current.addClass('card--out');
+        $current = $(this).addClass('card--current');
+        $next = $current.next();
+        $next = $next.length ? $next : $cards.first();
+        $next.addClass('card--next');
+      }
+    });
+  
+    if ( !$current.length ) {
+      $current = $cards.last();
+      $cards.first().trigger('click');
+    }
+  
+    $this.addClass('cards--active');
+  
+  })
+  
+  };
+  
+  $('.cards').commentCards();
+  </script>   
+
+ </div>
+
+
+<div id="imgs"></div>
+<div class="images">
+  <h2 class="animate-charcter">GLIMPSE OF HACKATHON</h2>
+  <div class="gallery" id="gallery">
+
+    <div class="gallery-item">
+        <div class="content"><img src="images/5.jpg alt=""></div>
+    </div>
+  
+  
+    <div class="gallery-item">
+        <div class="content"><img src="images/3.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/4.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/6.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/7.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/8.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/9.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+      <div class="content"><img src="images/2.jpg" alt=""></div>
+  </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/11.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/12.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/13.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/14.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/15.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/16.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/17.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+      <div class="content"><img src="images/1.jpg" alt=""></div>
+  </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/18.JPG" alt=""></div>
+    </div>
+    <div class="gallery-item">
+      <div class="content"><img src="images/30.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/19.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/20.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/21.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/22.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/23.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/24.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/25.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+        <div class="content"><img src="images/26.jpg" alt=""></div>
+    </div>
+    <div class="gallery-item">
+      <div class="content"><img src="images/27.jpg" alt=""></div>
+  </div>
+  <div class="gallery-item">
+    <div class="content"><img src="images/28.jpg" alt=""></div>
+  </div>
+  <div class="gallery-item">
+    <div class="content"><img src="images/29.jpg" alt=""></div>
+  </div>
+  </div>
+</div>
+<div id="theme"></div>
+<script>
+  var gallery = document.querySelector('#gallery');
+var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+var resizeAll = function () {
+var altura = getVal(gallery, 'grid-auto-rows');
+var gap = getVal(gallery, 'grid-row-gap');
+gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+  var el = item;
+  el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+});
+};
+gallery.querySelectorAll('img').forEach(function (item) {
+item.classList.add('byebye');
+if (item.complete) {
+  console.log(item.src);
+}
+else {
+  item.addEventListener('load', function () {
+      var altura = getVal(gallery, 'grid-auto-rows');
+      var gap = getVal(gallery, 'grid-row-gap');
+      var gitem = item.parentElement.parentElement;
+      gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+      item.classList.remove('byebye');
+  });
+}
+});
+window.addEventListener('resize', resizeAll);
+gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+item.addEventListener('click', function () {        
+  item.classList.toggle('full');        
+});
+});
+
+</script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script >
+    $('.navTrigger').click(function () {
+$(this).toggleClass('active');
+console.log("Clicked menu");
+$("#mainListDiv").toggleClass("show_list");
+$("#mainListDiv").fadeIn();
+
+});
+</script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+<script>
+    $(window).scroll(function() {
+        if ($(document).scrollTop() > 550) {
+            $('.nav').addClass('affix');
+            console.log("OK");
+        } else {
+            $('.nav').removeClass('affix');
+        }
+    });
+</script>
+
+
+<div class="rowth">
+  <h2 class="animate-charcter">THEMES</h2>
+  <div class="columnth" >
+    <div class="cardth" style="background: url(WEBI/Transportation&Logisticsblack.jpg);">
+      <h3 >Transportation & Logistics</h3>
+
+     
+    </div>
+    
+  </div>
+
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/BlockchainCyberSecurityblack.jpg);">
+      <h3>Blockchain & Cyber Security</h3>
+
+    </div>
+  </div>
+  
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/BioTechblack.jpg);">
+      <h3>MedTech/ BioTech/ HealthTech</h3>
+      
+    </div>
+  </div>
+  
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/SmartEducationblack.jpg);">
+      <h3>Smart Education</h3>
+ 
+    </div>
+  </div>
+
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/SmartAutomationblack.jpg);">
+      <h3>Smart Automation</h3>
+
+    </div>
+  </div>
+
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/SmartCommunicationblack.jpg);">
+      <h3>Smart Communication</h3>
+     
+    </div>
+  </div>
+
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/TravelTourismblack.jpg);">
+      <h3>Travel & Tourism</h3>
+
+    </div>
+  </div>
+
+  <div class="columnth">
+    <div class="cardth" style="background: url(WEBI/Disasterresponseblack.jpg);">
+      <h3>Disaster response</h3>
+ 
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="footer-ro">
+  <center><h2 class="animate-charcter">CONTACT</h2></center>
+  <div class="footer-col" >
+    <img src="WEBI/Tezario.png" alt="" width="15%" height="15%">
+    <h1 class='glowing-btn' style="font-size: 10px; margin: 0;"><span class='glowing-txt' style="font-size: 20px;">TEZ<span class='faulty-letter' style="font-size: 20px;">A</span>RIO</span></h1>
+    <h2> <span style="font-size: medium;">All rights reserved by</span>  ITIANS</h2>
+  </div>
+  <div class="footer-col" >
+    <h3 style="color: gold;">STAFF CO-ORDINATOR</h3>
+    <p>Mr. R. Palani Kumar: +91 99420 44175</p>
+    <h3 style="color: gold;">STUDENT CO-ORDINATOR</h3>
+    <p>+91 7598268557,+91 9994212535,+91 9384354316</p>
+    <h3 style="color: gold;">EMAIL</h3>
+    <p>hackathonit2023@gmail.com</p>
+    
+  </div>
+
+
+
+</div>
+</body>
+<script>
+    function updateTimer() {
+  future  = Date.parse("March 10, 2023 11:30:00");
+  now     = new Date();
+  diff    = future - now;
+
+  years = Math.floor( diff / (1000*60*60*24*365) );
+  days  = Math.floor( diff / (1000*60*60*24) );
+  hours = Math.floor( diff / (1000*60*60) );
+  mins  = Math.floor( diff / (1000*60) );
+  secs  = Math.floor( diff / 1000 );
+
+  y = years;
+  d = days  - years * 365;
+  h = hours - days  * 24;
+  m = mins  - hours * 60;
+  s = secs  - mins  * 60;
+
+  document.getElementById("timer")
+    .innerHTML =
+   
+      '<div>' + d + '<span>Days</span></div>' +
+      '<div>' + h + '<span>Hours</span></div>' +
+      '<div>' + m + '<span>Minutes</span></div>' +
+      '<div>' + s + '<span>Seconds</span></div>' ;
+}
+setInterval('updateTimer()', 1000 );
+
+</script>
+
+
+
+
+</html>
